@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <h1 class="titulo">LISTADO DE CITAS</h1>
+          <button class="btn btn-success float-end" routerLink="/crear-citas">NUEVA CITA</button>
+
+          <table *ngIf="listCitas.length > 0" class="table table-striped mt-5">
+            <thead>
+              <tr>
+                <th scope="col">NOMBRES</th>
+                <th scope="col">TELÉFONO</th>
+                <th scope="col">FECHA Y HORA</th>
+                <th scope="col">IDENTIFICACIÓN</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cita of listCitas">
+                <td scope="row">{{ cita.nombre }} </td>
+                <td>{{ cita.numeroTelefono }}</td>
+                <td>{{ cita.fechaCita }}</td>
+                <td>{{ cita.identificacion }}</td>
+                <td scope="col">
+                  <i [routerLink]="['/editar-citas', cita._id]" class="fas fa-regular fa-pen-to-square text-info"></i>
+                </td>
+                <td scope="col">
+                  <i (click)="confirmarEliminacion(cita._id)" class="fas fa-solid fa-trash text-danger"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h5 style="text-align: start; margin-top: 10px;" *ngIf="listCitas.length === 0">NO HAY CITAS AGENDADAS</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

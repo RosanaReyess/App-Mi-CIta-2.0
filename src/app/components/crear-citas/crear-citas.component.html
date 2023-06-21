@@ -1,0 +1,60 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo ">{{titulo| uppercase}} </span>
+
+                    <form class="mt-3" [formGroup]="citaForm" (ngSubmit)="agendarCita()">
+                        <div class="mb-3">
+                            <input type="text" formControlName="nombre" maxlength="30" class="form-control form-control-lg" placeholder="Nombre y Apellidos"> 
+
+                            <div class="text-danger"
+                                *ngIf="citaForm.get('nombre')?.hasError('required') && citaForm.get('nombre')?.touched">
+                                <span>Este campo <strong>es obligatorio</strong></span>
+                            </div>
+
+                          </div>
+
+                          <div class="mb-3">
+                    
+                            <input type="text" formControlName="numeroTelefono" maxlength="10" class="form-control form-control-lg" placeholder="Teléfono">
+                            
+                            <div class="text-danger"
+                                *ngIf="citaForm.get('numeroTelefono')?.hasError('required') && citaForm.get('numeroTelefono')?.touched">
+                                <span>Este campo <strong>es obligatorio</strong></span>
+                            </div>
+
+                          </div>
+
+                          <div class="mb-3">
+                            <input type="datetime-local" formControlName="fechaCita" class="form-control form-control-lg" placeholder="Fecha"> 
+
+                            <div class="text-danger"
+                                *ngIf="citaForm.get('fechaCita')?.hasError('required') && citaForm.get('fechaCita')?.touched">
+                                <span>Este campo <strong>es obligatorio</strong></span>
+                            </div>
+
+                          </div>
+
+                          <div class="mb-3">
+                            <input type="text" formControlName="identificacion" class="form-control form-control-lg"minlength="7" maxlength="10" placeholder="Identificación"> 
+
+                            <div class="text-danger"
+                                *ngIf="citaForm.get('identificacion')?.hasError('required') && citaForm.get('identificacion')?.touched">
+                                <span>Este campo <strong>es obligatorio</strong></span>
+                            </div>
+
+                          </div>
+
+                          <div class="mb-3">
+                            <button routerLink="/" class="btn btn-secondary btn-lg float-start">Volver</button>
+                            <button type="submit" [disabled]="citaForm.invalid" class="btn btn-success btn-lg float-end">Aceptar</button>
+                          </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    background-image: url('assets/fondo3.png');
+    background-repeat: no-repeat;
+    background-size: 1360px 668px;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+  
+.titulo{
+    font-size: 1.8rem;
+}
